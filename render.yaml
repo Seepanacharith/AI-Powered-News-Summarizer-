@@ -1,3 +1,4 @@
+# Trigger rebuild with dynamic port config
 services:
   - type: web
     name: ai-news-backend

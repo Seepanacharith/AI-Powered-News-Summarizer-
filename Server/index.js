@@ -3,7 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const userModel = require("./models/user");
-const bcrypt = require("bcrypt");
+
 const cron = require('node-cron');
 const { PythonShell } = require('python-shell');
 const fs = require('fs');

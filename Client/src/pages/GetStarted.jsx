@@ -39,9 +39,6 @@ function GetStarted() {
           <span className="newz">Newz</span>
         </div>
         <nav className="nav">
-          <button className="nav-button" onClick={() => navigate('/about-us')}>
-            About Us
-          </button>
           <button className="nav-button signin" onClick={() => navigate('/sign-in')}>
             Sign In
           </button>

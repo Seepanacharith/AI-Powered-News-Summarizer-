@@ -65,7 +65,9 @@ app.get('/api/test-cors', (req, res) => {
 });
 
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/User_Details";
-mongoose.connect(MONGODB_URI);
+mongoose.connect(MONGODB_URI)
+  .then(() => console.log("MongoDB connected successfully"))
+  .catch(err => console.error("MongoDB connection error:", err));
 
 const SECRET_KEY = "SoftwareEngineering";
 

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
+import { API_URL } from '../config';
 import {
     Globe,
     Flag,
@@ -112,7 +113,7 @@ export default function TopicsPage() {
                 throw new Error('User ID not found. Please log in again.');
             }
 
-            const response = await axios.post('http://localhost:5000/api/updateCategories', {
+            const response = await axios.post(`${API_URL}/api/updateCategories`, {
                 userId,
                 selectedCategories: categoryIndices
             });

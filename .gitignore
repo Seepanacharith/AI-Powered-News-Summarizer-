@@ -1,0 +1,27 @@
+# Dependency directories
+node_modules/
+jspm_packages/
+web_modules/
+
+# Build outputs
+dist/
+build/
+out/
+
+# Vercel & local environment
+.vercel
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Server generated data/logs
+Server/data/
+Server/personalized_news.json
+Server/news.json
+Server/logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

@@ -15,8 +15,20 @@ const validator = require("validator");
 
 const app = express();
 
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://ai-powered-news-summarizer-ebon.vercel.app'
+];
+
 const corsOptions = {
-  origin: 'http://localhost:5173',
+  origin: function (origin, callback) {
+    // allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) === -1 && !origin.endsWith('.vercel.app')) {
+      return callback(new Error('CORS not allowed'), false);
+    }
+    return callback(null, true);
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: [
     'Content-Type',
@@ -52,7 +64,8 @@ app.get('/api/test-cors', (req, res) => {
   });
 });
 
-mongoose.connect("mongodb://127.0.0.1:27017/User_Details");
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/User_Details";
+mongoose.connect(MONGODB_URI);
 
 const SECRET_KEY = "SoftwareEngineering";
 

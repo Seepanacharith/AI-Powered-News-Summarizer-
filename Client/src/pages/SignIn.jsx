@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'; // Import axios
+import { API_URL } from '../config';
 import '../styles/SignIn.css';
 import signupImage from '../Images/bgImage1.png';
 import sticker from '../Images/Logo.png';
@@ -26,9 +27,15 @@ const SignIn = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (userCaptchaInput.trim().toUpperCase() !== captcha.toUpperCase()) {
+      alert("Invalid Captcha. Please try again.");
+      refreshCaptcha();
+      return;
+    }
   
     try {
-      const response = await axios.post("http://localhost:5000/login", { username, password });
+      const response = await axios.post(`${API_URL}/login`, { username, password });
       if (response.data.message === "Success") {
         localStorage.setItem("authToken", response.data.token); // Save the token
         localStorage.setItem('username', response.data.user.username);

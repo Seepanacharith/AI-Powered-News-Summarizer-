@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: ai-news-backend
+    env: node
+    plan: free
+    rootDir: Server
+    buildCommand: npm install
+    startCommand: node index.js
+    envVars:
+      - key: MONGODB_URI
+        sync: false
+      - key: SECRET_KEY
+        value: SoftwareEngineering

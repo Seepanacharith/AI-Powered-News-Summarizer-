@@ -5,6 +5,7 @@ import "../styles/BitzNews.css";
 import logo from "../Images/Logo.png";
 import { ThumbsUp, ThumbsDown } from "lucide-react";
 import linkimage from "../Images/Link2.png";
+import { API_URL } from "../config";
 // Initialize speech synthesis
 const synth = window.speechSynthesis;
 
@@ -58,7 +59,7 @@ export default function BitzNews() {
   // Fetch news.json from backend
   const fetchNewsData = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/news");
+      const response = await axios.get(`${API_URL}/api/news`);
       setNewsData(response.data); // Save the fetched news data in state
     } catch (error) {
       console.error("Error fetching news data:", error);
@@ -78,7 +79,7 @@ export default function BitzNews() {
 
       try {
         const response = await axios.post(
-          "http://localhost:5000/verify",
+          `${API_URL}/verify`,
           {},
           {
             headers: {
@@ -110,7 +111,7 @@ export default function BitzNews() {
 
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/personalized-news",
+          `${API_URL}/api/personalized-news`,
           {
             headers: {
               Authorization: token ? `Bearer ${token}` : "",
@@ -240,7 +241,7 @@ export default function BitzNews() {
       // API call for "like" or "dislike" action
       const token = localStorage.getItem("authToken");
       const response = await axios.post(
-        `http://localhost:5000${apiEndpoint}`,
+        `${API_URL}${apiEndpoint}`,
         {
           category: article.category, // Pass the category of the article
         },

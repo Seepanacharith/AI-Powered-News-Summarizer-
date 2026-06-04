@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { API_URL } from '../config';
 import React, { useState } from 'react';
 import '../styles/SignUp.css';
 import signupImage from '../Images/bgImage1.png';
@@ -41,7 +42,7 @@ export default function Signup() {
         setError('');
 
         try {
-            const response = await axios.post('http://localhost:5000/api/register', formData);
+            const response = await axios.post(`${API_URL}/api/register`, formData);
             
             if (response.status === 201) {
                 localStorage.setItem('userId', response.data.user.userId);

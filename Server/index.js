@@ -664,6 +664,7 @@ app.get("/news", (req, res) => {
 
 //schedule.scheduleJob("0 30 22 * * *", () => runScraper());
 
-app.listen(5000, () => {
-  console.log(`[${new Date().toISOString()}] Server is running on port 5000`);
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`[${new Date().toISOString()}] Server is running on port ${PORT}`);
 });

@@ -28,12 +28,12 @@ const categories = [
 const subCategories = {
     States: [
         "Telangana",
-        "Maharastra",
-        "UttarPradesh",
+        "Maharashtra",
+        "Uttar Pradesh",
         "Gujarat",
-        "TamilNadu",
+        "Tamil Nadu",
         "Uttarakhand",
-        "AndhraPradesh",
+        "Andhra Pradesh",
     ],
     Cities: ["Delhi", "Mumbai", "Chennai", "Hyderabad", "Bengaluru"],
 };
@@ -48,12 +48,12 @@ const categoryToIndexMap = {
     
     // States
     'Telangana': 5,
-    'Maharastra': 6,
-    'UttarPradesh': 7,
+    'Maharashtra': 6,
+    'Uttar Pradesh': 7,
     'Gujarat': 8,
-    'TamilNadu': 9,
+    'Tamil Nadu': 9,
     'Uttarakhand': 10,
-    'AndhraPradesh': 11,
+    'Andhra Pradesh': 11,
     
     // Cities
     'Delhi': 12,

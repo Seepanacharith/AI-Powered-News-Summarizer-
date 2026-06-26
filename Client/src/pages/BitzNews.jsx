@@ -492,9 +492,13 @@ export default function BitzNews() {
                           />
                         </div>
                       </div>
-                      <button
+                      <a
                         className="bitz-read-more"
-                        onClick={() => handleCardClick(a.link)}
+                        href={a.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}
                       >
                         <img
                           src={linkimage}
@@ -504,7 +508,7 @@ export default function BitzNews() {
                           height="20"
                         />
                         Full Article
-                      </button>
+                      </a>
                     </div>
                   </div>
                 </div>

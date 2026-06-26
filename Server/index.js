@@ -76,7 +76,7 @@ const SECRET_KEY = "SoftwareEngineering";
 
 app.post('/login', (req, res) => {
   const { username, password } = req.body;
-  userModel.findOne({ username: username })
+  userModel.findOne({ username: (username || '').toLowerCase() })
     .then(user => {
       if (user) {
         if (user.password === password) {

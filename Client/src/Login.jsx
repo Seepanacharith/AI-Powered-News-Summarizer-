@@ -12,7 +12,7 @@ const jwt = require("jsonwebtoken");
 const SECRET_KEY = "SoftwareEnginnering"; // Consider moving this to environment variables
 
 // Improved MongoDB connection with error handling
-mongoose.connect("mongodb://127.0.0.1:27017/User_Details")
+mongoose.connect("mongodb+srv://seepanacharith11_db_user:charithnews@cluster0.32pnkfg.mongodb.net/?appName=Cluster0")
   .then(() => console.log("Connected to MongoDB"))
   .catch(err => console.error("MongoDB connection error:", err));
 

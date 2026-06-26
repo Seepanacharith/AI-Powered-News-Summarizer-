@@ -1,4 +1,5 @@
 
+require('dotenv').config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -17,6 +18,7 @@ const app = express();
 
 const allowedOrigins = [
   'http://localhost:5173',
+  'http://localhost:5174',
   'https://ai-powered-news-summarizer-ebon.vercel.app'
 ];
 
@@ -24,7 +26,8 @@ const corsOptions = {
   origin: function (origin, callback) {
     // allow requests with no origin (like mobile apps or curl requests)
     if (!origin) return callback(null, true);
-    if (allowedOrigins.indexOf(origin) === -1 && !origin.endsWith('.vercel.app')) {
+    const isLocalhost = origin.startsWith('http://localhost:') || origin.startsWith('http://127.0.0.1:');
+    if (allowedOrigins.indexOf(origin) === -1 && !origin.endsWith('.vercel.app') && !isLocalhost) {
       return callback(new Error('CORS not allowed'), false);
     }
     return callback(null, true);
